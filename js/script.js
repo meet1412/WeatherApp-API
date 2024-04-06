@@ -6,7 +6,6 @@ humidity = document.querySelector(".humidity")
 weather = document.querySelector(".weather")
 desc = document.querySelector(".desc")
 API = "8cf5ac5621c8d0266298a149e49d7514";
-// --------------------- Created By InCoder ---------------------
 const setWeatherDetails = (data) => {
     // console.log(data);
     desc.innerHTML = data.weather[0].description;
