@@ -6,8 +6,8 @@ humidity = document.querySelector(".humidity")
 weather = document.querySelector(".weather")
 desc = document.querySelector(".desc")
 API = "8cf5ac5621c8d0266298a149e49d7514";
+
 const setWeatherDetails = (data) => {
-    // console.log(data);
     desc.innerHTML = data.weather[0].description;
     weather.innerHTML = Math.round(data.main.temp - 273.15) + "°c";
     humidity.innerHTML = data.main.humidity + "%";
@@ -34,10 +34,11 @@ const setWeatherDetails = (data) => {
     }
 }
 
+//Api  call for getting the weather details of a city using geolocation API
 const callAPI = (id) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${id}`)
         .then(response => {
-            // indicates whether the response is successful (status code 200-299) or not
+            // indicates whether the response is successful or not
             if (!response.ok) {
                 alert("Check spelling of City and try again or Something Went Wrong!");
                 throw new Error(`Request failed with status ${response.status}`)
